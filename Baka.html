@@ -1,9 +1,719 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <Title> Childe Fanpage </Title>
-    </head>
-    <body>
-        
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOW & DREAM // ILLIT & TXT Fanpage</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        illit: {
+                            pink: '#FFD1DC',
+                            purple: '#E2D5F8',
+                            accent: '#FF7EA5',
+                        },
+                        txt: {
+                            blue: '#B8E1FF',
+                            cyan: '#A5F3FC',
+                            accent: '#3B82F6',
+                        },
+                        pastel: {
+                            bg: '#FAF8FC',
+                            card: '#FFFFFF',
+                            text: '#2D2B35',
+                            muted: '#716E85'
+                        }
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        sparkle: {
+                            '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
+                            '50%': { opacity: 1, transform: 'scale(1.2)' },
+                        }
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        sparkle: 'sparkle 2.5s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF8FC;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(255, 209, 220, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(184, 225, 255, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(226, 213, 248, 0.3) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .illit-gradient {
+            background: linear-gradient(135deg, #FFD1DC 0%, #E2D5F8 100%);
+        }
+        .txt-gradient {
+            background: linear-gradient(135deg, #B8E1FF 0%, #A5F3FC 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(240, 240, 250, 0.5);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D8D2E7;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #C3B9DC;
+        }
+    </style>
+</head>
+<text class="text-pastel-text font-sans antialiased selection:bg-illit-pink selection:text-pastel-text">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card border-b border-white/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 font-display font-extrabold text-xl tracking-tight text-pastel-text">
+                <span class="text-illit-accent"><i class="fa-solid fa-sparkles animate-sparkle"></i></span>
+                <span class="bg-gradient-to-r from-illit-accent to-txt-accent bg-clip-text text-transparent">GLOW & DREAM</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-1 text-sm font-semibold">
+                <a href="#about" class="px-3 py-2 rounded-full hover:bg-white/60 transition text-pastel-muted hover:text-pastel-text">About</a>
+                <a href="#members" class="px-3 py-2 rounded-full hover:bg-white/60 transition text-pastel-muted hover:text-pastel-text">Members</a>
+                <a href="#music" class="px-3 py-2 rounded-full hover:bg-white/60 transition text-pastel-muted hover:text-pastel-text">Discography</a>
+                <a href="#bias-poll" class="px-3 py-2 rounded-full hover:bg-white/60 transition text-pastel-muted hover:text-pastel-text">Bias Poll</a>
+                <a href="#guestbook" class="px-3 py-2 rounded-full bg-pastel-text text-white hover:bg-opacity-90 transition shadow-sm ml-2">Fan Lounge</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-pastel-text text-xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-white/40 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" class="block py-2 px-3 rounded-lg hover:bg-white/50">About</a>
+            <a href="#members" class="block py-2 px-3 rounded-lg hover:bg-white/50">Members</a>
+            <a href="#music" class="block py-2 px-3 rounded-lg hover:bg-white/50">Discography</a>
+            <a href="#bias-poll" class="block py-2 px-3 rounded-lg hover:bg-white/50">Bias Poll</a>
+            <a href="#guestbook" class="block py-2 px-3 rounded-lg bg-pastel-text text-white text-center">Fan Lounge</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 text-center relative overflow-hidden">
+        <!-- Floating Badges -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card shadow-sm border border-white text-xs font-semibold text-pastel-muted mb-6 animate-float">
+            <span class="inline-block w-2 h-2 rounded-full bg-illit-accent animate-ping"></span>
+            <span>HYBE LABELS SPOTLIGHT</span>
+            <i class="fa-solid fa-heart text-illit-accent text-xs"></i>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+            Magical Whimsical Worlds of <br class="hidden sm:block"/>
+            <span class="bg-gradient-to-r from-illit-accent via-purple-400 to-txt-accent bg-clip-text text-transparent">ILLIT & TXT</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-pastel-muted text-base sm:text-lg mb-8 leading-relaxed">
+            Welcome to the ultimate fan hub for GLLITs and MOAs! Explore member profiles, top tracks, vote for your bias, and leave messages for fellow fans.
+        </p>
+
+        <!-- Quick Info Cards / Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+            <div class="glass-card p-3 rounded-2xl border border-white shadow-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-[#000] fa-wand-magic-sparkles text-illit-accent"></i>
+                <span class="text-xs font-bold uppercase tracking-wider">Super Real Me</span>
+            </div>
+            <div class="glass-card p-3 rounded-2xl border border-white shadow-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-star text-txt-accent"></i>
+                <span class="text-xs font-bold uppercase tracking-wider">Freefall</span>
+            </div>
+            <div class="glass-card p-3 rounded-2xl border border-white shadow-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-compact-disc text-purple-400"></i>
+                <span class="text-xs font-bold uppercase tracking-wider">GLLIT & MOA</span>
+            </div>
+            <div class="glass-card p-3 rounded-2xl border border-white shadow-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-bolt text-yellow-400"></i>
+                <span class="text-xs font-bold uppercase tracking-wider">HYBE Family</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Group Bios Section -->
+    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div class="text-center mb-10">
+            <h2 class="font-display text-3xl font-bold mb-2">Group Profiles</h2>
+            <p class="text-pastel-muted text-sm">Get to know the magical concept and origin of both groups</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- ILLIT Card -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-sm hover:shadow-md transition-all border border-illit-pink/50">
+                <div class="absolute top-0 right-0 w-32 h-32 illit-gradient opacity-20 rounded-bl-full pointer-events-none"></div>
+                
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-illit-pink text-pastel-text font-bold text-xs">BELIFT LAB</span>
+                    <span class="text-xs font-medium text-pastel-muted"><i class="fa-solid fa-calendar-days mr-1"></i> Debut: March 25, 2024</span>
+                </div>
+
+                <h3 class="font-display text-3xl font-extrabold text-pastel-text mb-3">ILLIT</h3>
+                <p class="text-pastel-muted text-sm leading-relaxed mb-6">
+                    Formed through the survival show 'R U Next?', ILLIT is a 5-member girl group embodying "I WILL BE IT"—expressing potential to become anything you imagine. Known for whimsical, dreamcore visual aesthetics and viral hyper-pop hits like "Magnetic".
+                </p>
+
+                <div class="bg-white/80 p-4 rounded-2xl border border-illit-pink/30 space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="font-bold text-pastel-muted">Fandom Name:</span>
+                        <span class="font-semibold text-pastel-text">GLLIT (글릿)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-bold text-pastel-muted">Key Vibe:</span>
+                        <span class="font-semibold text-pastel-text">Dreamy, Cute, Nostalgic, Whimsical</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TXT Card -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-sm hover:shadow-md transition-all border border-txt-blue/50">
+                <div class="absolute top-0 right-0 w-32 h-32 txt-gradient opacity-20 rounded-bl-full pointer-events-none"></div>
+
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-txt-blue text-pastel-text font-bold text-xs">BIGHIT MUSIC</span>
+                    <span class="text-xs font-medium text-pastel-muted"><i class="fa-solid fa-calendar-days mr-1"></i> Debut: March 4, 2019</span>
+                </div>
+
+                <h3 class="font-display text-3xl font-extrabold text-pastel-text mb-3">TXT</h3>
+                <p class="text-pastel-muted text-sm leading-relaxed mb-6">
+                    TOMORROW X TOGETHER is a 5-member powerhouse group where "you and I come together under one dream to build a better tomorrow." Famed for unique storytelling, intricate concepts, high energy performances, and genre-defying pop-rock tracks.
+                </p>
+
+                <div class="bg-white/80 p-4 rounded-2xl border border-txt-blue/30 space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="font-bold text-pastel-muted">Fandom Name:</span>
+                        <span class="font-semibold text-pastel-text">MOA (Moments Of Alwaysness)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-bold text-pastel-muted">Key Vibe:</span>
+                        <span class="font-semibold text-pastel-text">Futuristic, Pop-Rock, Storytelling, Youth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Roster Section -->
+    <section id="members" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+            <div>
+                <h2 class="font-display text-3xl font-bold">Meet the Members</h2>
+                <p class="text-pastel-muted text-sm">Select a group to view their profiles</p>
+            </div>
+            <!-- Toggle Tabs -->
+            <div class="inline-flex p-1 rounded-2xl glass-card border border-white shadow-sm self-start sm:self-auto">
+                <button id="tabIllit" onclick="switchGroup('illit')" class="px-5 py-2 rounded-xl text-xs font-bold transition-all bg-illit-pink text-pastel-text shadow-sm">
+                    ILLIT (5)
+                </button>
+                <button id="tabTxt" onclick="switchGroup('txt')" class="px-5 py-2 rounded-xl text-xs font-bold transition-all text-pastel-muted hover:text-pastel-text">
+                    TXT (5)
+                </button>
+            </div>
+        </div>
+
+        <!-- ILLIT Members Grid -->
+        <div id="illitMembers" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <!-- Yunah -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-illit-pink transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl illit-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    YN
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Yunah</h4>
+                    <span class="text-[10px] bg-illit-purple px-2 py-0.5 rounded-full font-semibold">184 cm*</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Jan 15, 2004 • Leader, All-Rounder</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Charming leader with captivating stage presence."</p>
+            </div>
+
+            <!-- Minju -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-illit-pink transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl illit-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    MJ
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Minju</h4>
+                    <span class="text-[10px] bg-illit-purple px-2 py-0.5 rounded-full font-semibold">Vocal</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">May 11, 2004 • Main Vocalist</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Unique, sweet voice with effortless high notes."</p>
+            </div>
+
+            <!-- Moka -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-illit-pink transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl illit-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    MK
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Moka</h4>
+                    <span class="text-[10px] bg-illit-purple px-2 py-0.5 rounded-full font-semibold">Dance</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Oct 8, 2004 • Japanese Member</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Expressive dance queen with viral fancams."</p>
+            </div>
+
+            <!-- Wonhee -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-illit-pink transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl illit-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    WH
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Wonhee</h4>
+                    <span class="text-[10px] bg-illit-purple px-2 py-0.5 rounded-full font-semibold">Center</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Jun 26, 2007 • Vocalist, Face of Group</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Cute, bubbly personality with incredible growth."</p>
+            </div>
+
+            <!-- Iroha -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-illit-pink transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl illit-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    IR
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Iroha</h4>
+                    <span class="text-[10px] bg-illit-purple px-2 py-0.5 rounded-full font-semibold">Maknae</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Feb 4, 2008 • Main Dancer, Youngest</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Hip-hop dance prodigy with unmatched energy."</p>
+            </div>
+        </div>
+
+        <!-- TXT Members Grid (Hidden by default) -->
+        <div id="txtMembers" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <!-- Soobin -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-txt-blue transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl txt-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    SB
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Soobin</h4>
+                    <span class="text-[10px] bg-txt-cyan px-2 py-0.5 rounded-full font-semibold">Leader</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Dec 5, 2000 • Vocalist</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Gentle leader with sweet falsetto and dimples."</p>
+            </div>
+
+            <!-- Yeonjun -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-txt-blue transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl txt-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    YJ
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Yeonjun</h4>
+                    <span class="text-[10px] bg-txt-cyan px-2 py-0.5 rounded-full font-semibold">4th Gen IT Boy</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Sep 13, 1999 • Rap, Dance, Vocal</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Legendary trainee, charismatic rapper & icon."</p>
+            </div>
+
+            <!-- Beomgyu -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-txt-blue transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl txt-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    BG
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Beomgyu</h4>
+                    <span class="text-[10px] bg-txt-cyan px-2 py-0.5 rounded-full font-semibold">Visual</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Mar 13, 2001 • Center, Producer</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Energetic moodmaker with incredible guitar skills."</p>
+            </div>
+
+            <!-- Taehyun -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-txt-blue transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl txt-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    TH
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Taehyun</h4>
+                    <span class="text-[10px] bg-txt-cyan px-2 py-0.5 rounded-full font-semibold">Main Vocal</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Feb 5, 2002 • Vocalist, Lyricist</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Passionate, witty, with explosive vocal range."</p>
+            </div>
+
+            <!-- Hueningkai -->
+            <div class="glass-card p-4 rounded-2xl border border-white hover:border-txt-blue transition-all shadow-sm group">
+                <div class="w-full h-44 rounded-xl txt-gradient mb-3 flex items-center justify-center text-4xl font-display font-black text-white/80 shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    HK
+                </div>
+                <div class="flex justify-between items-start mb-1">
+                    <h4 class="font-bold text-base text-pastel-text">Hueningkai</h4>
+                    <span class="text-[10px] bg-txt-cyan px-2 py-0.5 rounded-full font-semibold">Maknae</span>
+                </div>
+                <p class="text-xs text-pastel-muted mb-2 font-medium">Aug 14, 2002 • Vocal, Multi-Instrumentalist</p>
+                <p class="text-xs text-pastel-text/80 bg-white/60 p-2 rounded-lg italic">"Adorable youngest member gifted with musical talent."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Section -->
+    <section id="music" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div class="text-center mb-10">
+            <h2 class="font-display text-3xl font-bold mb-2">Discography Highlights</h2>
+            <p class="text-pastel-muted text-sm">Listen to fan favorites and viral songs</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- ILLIT Tracks -->
+            <div class="glass-card p-6 rounded-3xl border border-illit-pink/40">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full illit-gradient flex items-center justify-center text-pastel-text">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">ILLIT Top Tracks</h3>
+                        <p class="text-xs text-pastel-muted">Belift Lab • Super Real Me & Beyond</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-illit-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">Magnetic</h4>
+                                <p class="text-[10px] text-pastel-muted">SUPER REAL ME (Title Track)</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold px-2 py-1 bg-illit-pink/50 rounded-full">Viral Track</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-illit-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">Cherish (My Love)</h4>
+                                <p class="text-[10px] text-pastel-muted">I'LL LIKE YOU</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold px-2 py-1 bg-illit-purple/50 rounded-full">Recent Comeback</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-illit-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">Lucky Girl Attitude</h4>
+                                <p class="text-[10px] text-pastel-muted">SUPER REAL ME</p>
+                            </div>
+                        </div>
+                        <span class="text-xs text-pastel-muted">2:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TXT Tracks -->
+            <div class="glass-card p-6 rounded-3xl border border-txt-blue/40">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full txt-gradient flex items-center justify-center text-pastel-text">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">TXT Top Tracks</h3>
+                        <p class="text-xs text-pastel-muted">BigHit Music • Fan Favorites</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-txt-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">Deja Vu</h4>
+                                <p class="text-[10px] text-pastel-muted">minisode 3: TOMORROW</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold px-2 py-1 bg-txt-blue/60 rounded-full">Title Track</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-txt-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">0X1=LOVESONG (I Know I Love You)</h4>
+                                <p class="text-[10px] text-pastel-muted">FREEZE</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold px-2 py-1 bg-txt-cyan/60 rounded-full">Rock Pop</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-white/70 rounded-xl border border-white hover:bg-white transition">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-play text-txt-accent text-sm"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm">Sugar Rush Ride</h4>
+                                <p class="text-[10px] text-pastel-muted">The Name Chapter: TEMPTATION</p>
+                            </div>
+                        </div>
+                        <span class="text-xs text-pastel-muted">3:07</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Bias Poll Section -->
+    <section id="bias-poll" class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white shadow-sm">
+            <div class="text-center mb-8">
+                <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 font-bold text-xs">INTERACTIVE POLL</span>
+                <h2 class="font-display text-3xl font-bold mt-2">Who is Your Ultimate Bias?</h2>
+                <p class="text-pastel-muted text-sm mt-1">Cast your vote to support your favorite idol!</p>
+            </div>
+
+            <!-- Poll Form & Progress Bars -->
+            <div class="space-y-4 max-w-xl mx-auto">
+                <!-- Option 1: Wonhee -->
+                <div onclick="voteBias('wonhee')" class="p-4 rounded-2xl bg-white/80 border border-white shadow-sm hover:border-illit-pink transition cursor-pointer">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sm">Wonhee <span class="text-xs font-normal text-pastel-muted">(ILLIT)</span></span>
+                        <span id="pct-wonhee" class="text-xs font-bold text-illit-accent">34%</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="bar-wonhee" class="h-full bg-illit-accent rounded-full transition-all duration-500" style="width: 34%"></div>
+                    </div>
+                </div>
+
+                <!-- Option 2: Yeonjun -->
+                <div onclick="voteBias('yeonjun')" class="p-4 rounded-2xl bg-white/80 border border-white shadow-sm hover:border-txt-blue transition cursor-pointer">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sm">Yeonjun <span class="text-xs font-normal text-pastel-muted">(TXT)</span></span>
+                        <span id="pct-yeonjun" class="text-xs font-bold text-txt-accent">38%</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="bar-yeonjun" class="h-full bg-txt-accent rounded-full transition-all duration-500" style="width: 38%"></div>
+                    </div>
+                </div>
+
+                <!-- Option 3: Minju -->
+                <div onclick="voteBias('minju')" class="p-4 rounded-2xl bg-white/80 border border-white shadow-sm hover:border-illit-purple transition cursor-pointer">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sm">Minju <span class="text-xs font-normal text-pastel-muted">(ILLIT)</span></span>
+                        <span id="pct-minju" class="text-xs font-bold text-purple-500">16%</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="bar-minju" class="h-full bg-purple-400 rounded-full transition-all duration-500" style="width: 16%"></div>
+                    </div>
+                </div>
+
+                <!-- Option 4: Soobin -->
+                <div onclick="voteBias('soobin')" class="p-4 rounded-2xl bg-white/80 border border-white shadow-sm hover:border-txt-cyan transition cursor-pointer">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sm">Soobin <span class="text-xs font-normal text-pastel-muted">(TXT)</span></span>
+                        <span id="pct-soobin" class="text-xs font-bold text-cyan-600">12%</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="bar-soobin" class="h-full bg-cyan-400 rounded-full transition-all duration-500" style="width: 12%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poll Confirmation Notice -->
+            <p id="voteMessage" class="text-center text-xs text-pastel-muted mt-4 font-semibold hidden">
+                <i class="fa-solid fa-circle-check text-green-500 mr-1"></i> Thank you for voting!
+            </p>
+        </div>
+    </section>
+
+    <!-- Fan Guestbook / Message Board -->
+    <section id="guestbook" class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <div class="text-center mb-10">
+            <h2 class="font-display text-3xl font-bold mb-2">Fan Guestbook</h2>
+            <p class="text-pastel-muted text-sm">Leave a sweet message for ILLIT or TXT!</p>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-8">
+            <!-- Form Side -->
+            <div class="md:col-span-2 glass-card p-6 rounded-3xl border border-white shadow-sm self-start">
+                <form id="messageForm" onsubmit="addMessage(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-muted mb-1">Fan Name / Handle</label>
+                        <input type="text" id="fanName" required placeholder="@glow_moa" class="w-full px-3 py-2 rounded-xl bg-white/80 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-illit-pink">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-muted mb-1">Select Group / Idol</label>
+                        <select id="fanTarget" class="w-full px-3 py-2 rounded-xl bg-white/80 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-illit-pink">
+                            <option value="Both">Both (ILLIT & TXT)</option>
+                            <option value="ILLIT">ILLIT</option>
+                            <option value="TXT">TXT</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-muted mb-1">Your Message</label>
+                        <textarea id="fanText" required rows="3" placeholder="Sending so much love from around the world! ✨" class="w-full px-3 py-2 rounded-xl bg-white/80 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-illit-pink resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-illit-accent to-txt-accent text-white font-bold text-xs shadow-sm hover:opacity-95 transition">
+                        Post Message <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Messages Stream Side -->
+            <div class="md:col-span-3 space-y-3 custom-scrollbar max-h-[420px] overflow-y-auto pr-1" id="messagesList">
+                <!-- Preset Fan Message 1 -->
+                <div class="bg-white/80 p-4 rounded-2xl border border-white shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-xs text-pastel-text">@chuu_cloud</span>
+                        <span class="text-[10px] bg-illit-pink/50 px-2 py-0.5 rounded-full font-semibold">For ILLIT</span>
+                    </div>
+                    <p class="text-xs text-pastel-muted leading-relaxed">"Magnetic has been on repeat all month long! Moka's dance center part is iconic!"</p>
+                </div>
+
+                <!-- Preset Fan Message 2 -->
+                <div class="bg-white/80 p-4 rounded-2xl border border-white shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-xs text-pastel-text">@txt_star_boy</span>
+                        <span class="text-[10px] bg-txt-blue/60 px-2 py-0.5 rounded-full font-semibold">For TXT</span>
+                    </div>
+                    <p class="text-xs text-pastel-muted leading-relaxed">"Deja Vu is absolute perfection! Hope they rest well during tour season!"</p>
+                </div>
+
+                <!-- Preset Fan Message 3 -->
+                <div class="bg-white/80 p-4 rounded-2xl border border-white shadow-sm">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-xs text-pastel-text">@hybe_family_fan</span>
+                        <span class="text-[10px] bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full font-semibold">For Both</span>
+                    </div>
+                    <p class="text-xs text-pastel-muted leading-relaxed">"GLLIT and MOA friendship forever! Love seeing HYBE interactions!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="border-t border-white/60 py-8 text-center glass-card mt-12">
+        <p class="text-xs font-semibold text-pastel-muted">
+            Made with <i class="fa-solid fa-heart text-illit-accent"></i> for ILLIT & TXT Fans • Fanpage Project
+        </p>
+        <p class="text-[10px] text-pastel-muted/70 mt-1">
+            All images, trademarks, and music names belong to BELIFT LAB and BIGHIT MUSIC / HYBE Labels.
+        </p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Switch Group Tabs (ILLIT / TXT)
+        function switchGroup(group) {
+            const illitDiv = document.getElementById('illitMembers');
+            const txtDiv = document.getElementById('txtMembers');
+            const tabIllit = document.getElementById('tabIllit');
+            const tabTxt = document.getElementById('tabTxt');
+
+            if (group === 'illit') {
+                illitDiv.classList.remove('hidden');
+                txtDiv.classList.add('hidden');
+                tabIllit.className = "px-5 py-2 rounded-xl text-xs font-bold transition-all bg-illit-pink text-pastel-text shadow-sm";
+                tabTxt.className = "px-5 py-2 rounded-xl text-xs font-bold transition-all text-pastel-muted hover:text-pastel-text";
+            } else {
+                illitDiv.classList.add('hidden');
+                txtDiv.classList.remove('hidden');
+                tabTxt.className = "px-5 py-2 rounded-xl text-xs font-bold transition-all bg-txt-blue text-pastel-text shadow-sm";
+                tabIllit.className = "px-5 py-2 rounded-xl text-xs font-bold transition-all text-pastel-muted hover:text-pastel-text";
+            }
+        }
+
+        // Bias Poll Logic
+        let votes = { wonhee: 34, yeonjun: 38, minju: 16, soobin: 12 };
+
+        function voteBias(idol) {
+            votes[idol] += 1;
+            const total = votes.wonhee + votes.yeonjun + votes.minju + votes.soobin;
+
+            // Recalculate %
+            for (let k in votes) {
+                const pct = Math.round((votes[k] / total) * 100);
+                document.getElementById(`pct-${k}`).innerText = pct + '%';
+                document.getElementById(`bar-${k}`).style.width = pct + '%';
+            }
+
+            const msg = document.getElementById('voteMessage');
+            msg.classList.remove('hidden');
+        }
+
+        // Guestbook Message Logic
+        function addMessage(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('fanName').value;
+            const target = document.getElementById('fanTarget').value;
+            const text = document.getElementById('fanText').value;
+
+            // Create Badge color based on selection
+            let badgeClass = "bg-purple-100 text-purple-600";
+            if(target === 'ILLIT') badgeClass = "bg-illit-pink/50";
+            if(target === 'TXT') badgeClass = "bg-txt-blue/60";
+
+            const newCard = document.createElement('div');
+            newCard.className = "bg-white/80 p-4 rounded-2xl border border-white shadow-sm transition-all animate-float";
+            newCard.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="font-bold text-xs text-pastel-text">${escapeHtml(name)}</span>
+                    <span class="text-[10px] ${badgeClass} px-2 py-0.5 rounded-full font-semibold">For ${escapeHtml(target)}</span>
+                </div>
+                <p class="text-xs text-pastel-muted leading-relaxed">"${escapeHtml(text)}"</p>
+            `;
+
+            const list = document.getElementById('messagesList');
+            list.prepend(newCard);
+
+            // Reset Form
+            document.getElementById('messageForm').reset();
+        }
+
+        // Helper to sanitize inputs
+        function escapeHtml(str) {
+            return str.replace(/[&<>"']/g, function(m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                }[m];
+            });
+        }
+    </script>
+</body>
 </html>
